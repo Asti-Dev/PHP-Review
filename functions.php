@@ -30,5 +30,10 @@ function get_data(string $url, ?array $params = NULL) : array
     return $data;
 };
 
+function render_template(string $template, array $data = [] ){
+    $template = trim($template);
+    $template = str_replace(" ","_",$template);
+    require("templates/$template.php");
+}
 
 ?>
