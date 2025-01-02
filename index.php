@@ -21,20 +21,20 @@ $data = get_data($apiUrl, $apiParams);
 <body>
     <nav class="container-fluid">
         <ul>
-          <li><strong>Brand</strong></li>
+          <li><strong>My Page</strong></li>
         </ul>
         <ul>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#" role="button">Button</a></li>
+          <li><a href="#Section1">Seccion 1</a></li>
+          <li><a href="#Section2">Seccion 2</a></li>
+          <li><a href="#Section3" role="button">Seccion 3</a></li>
         </ul>
     </nav>
     <header class="container-fluid header">
-        <h1> Encuentra las mejore cosas aqui en <br><span>Spectre</span></h1>
-        <h2> No pierdas tiempo en tiendas intermediarias</h2>
+        <h1 class="text-center"> Encuentra las mejore cosas aqui en <br><span>Spectre</span></h1>
+        <h2 class="text-center"> No pierdas tiempo en tiendas intermediarias</h2>
     </header>
-    <main class="container">
-        <h3> Lista de Ofertas</h3>
+    <main id="Section1" class="container">
+        <h3> Lista de Pokemons</h3>
         <div class="pokemons__wrapper">
         <?php foreach ($data["results"] as $key => $pokemon) :?>
         <article class="pokemon">
@@ -59,7 +59,7 @@ $data = get_data($apiUrl, $apiParams);
         <?php endforeach; ?>
         </div>
     </main>
-    <section class="container">
+    <section id="Section2" class="container">
         <h3> Categorias de nuestros productos </h3>
         <div class="grid">
             <article class="category-item">
@@ -67,7 +67,7 @@ $data = get_data($apiUrl, $apiParams);
                 <img class="category__image" src="./img/calzado.jpg" alt="">
                 </div>
                 <footer>
-                    <a href="*"> ➡ Categoria 1</a>
+                    <a href="#"> ➡ Categoria 1</a>
                 </footer>
             </article>
             <article class="category-item">
@@ -75,7 +75,7 @@ $data = get_data($apiUrl, $apiParams);
             <img class="category__image" src="./img/hogar.jpg" alt="">
                 </div>    
             <footer>
-                    <a href="*"> ➡ Categoria 2</a>
+                    <a href="#"> ➡ Categoria 2</a>
                 </footer>
             </article>
         </div>
@@ -85,7 +85,7 @@ $data = get_data($apiUrl, $apiParams);
             <img class="category__image" src="./img/ropa.jpg" alt="">
                 </div>    
             <footer>
-                    <a href="*"> ➡ Categoria 3</a>
+                    <a href="#"> ➡ Categoria 3</a>
                 </footer>
             </article>
             <article class="category-item">
@@ -93,12 +93,12 @@ $data = get_data($apiUrl, $apiParams);
             <img class="category__image" src="./img/tecnologia.jpg" alt="">
                 </div>    
             <footer>
-                    <a href="*"> ➡ Categoria 4</a>
+                    <a href="#"> ➡ Categoria 4</a>
                 </footer>
             </article>
         </div>
     </section>
-    <section class="container contact">
+    <section id="Section3" class="container contact">
         <div>
         <h3>Ubicanos</h3>
         <p>
@@ -116,7 +116,7 @@ $data = get_data($apiUrl, $apiParams);
         </div>
     </section>
     <footer class="container" >
-        Copyright © 2023 - Spectre
+        Copyright © 2024 - Spectre
     </footer>
 </body>
 </html>
