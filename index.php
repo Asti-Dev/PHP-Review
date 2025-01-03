@@ -3,7 +3,6 @@ require_once 'functions.php';
 
 $data = get_data($apiUrl, $apiParams);
 
-
 ?>
 
 <!DOCTYPE html>

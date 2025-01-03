@@ -8,7 +8,7 @@ $apiParams = [
     "offset" => rand(1, 100),
 ];
 
-function get_data(string $url, ?array $params = NULL) : array
+function get_data(string $url, ?array $params = NULL) : stdClass
 {
     if ($params) {
         $url = $url . "?" . http_build_query($params);
@@ -20,17 +20,20 @@ function get_data(string $url, ?array $params = NULL) : array
     
     $response = curl_exec($curl);
     
+    $data = new stdClass();
+
     if (curl_errno($curl)) {
         echo "cURL error: " . curl_error($curl);
         $data = NULL;
     } else {
-        $data = json_decode($response, true);
+        $data = json_decode($response);
     }
     curl_close($curl);
     return $data;
 };
 
-function render_template(string $template, array $data = [] ){
+function render_template(string $template, ?stdClass $data = NULL ) : void
+{
     $template = trim($template);
     $template = str_replace(" ","_",$template);
     require("templates/$template.php");
