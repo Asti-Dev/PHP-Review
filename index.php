@@ -1,10 +1,3 @@
-<?php 
-require_once 'functions.php';
-
-$data = get_data($apiUrl, $apiParams);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +6,7 @@ $data = get_data($apiUrl, $apiParams);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/pico/pico.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>Spectre</title>
 </head>
 <body>
@@ -29,14 +21,69 @@ $data = get_data($apiUrl, $apiParams);
         </ul>
     </nav>
     <header class="container-fluid header">
-        <h1 class="text-center"> Encuentra las mejore cosas aqui en <br><span>Spectre</span></h1>
+        <h1 class='text-center'> Encuentra las mejore cosas aqui en <br><span>Spectre</span></h1>
         <h2 class="text-center"> No pierdas tiempo en tiendas intermediarias</h2>
     </header>
-    <?php render_template("pokemon", $data); ?>
-    <?php render_template("products categories"); ?>
-    <?php render_template("contact"); ?>
+    <section id="Section1" class="container">
+        <h3> Lista de Pokemons</h3>
+        <div class="pokemons__wrapper">
+            <div id="loader" aria-busy="true" style="display: none;"></div>
+        </div>
+    </section>
+    <section id="Section2" class="container">
+        <h3> Categorias de nuestros productos </h3>
+        <div id="loader2" aria-busy="true" style="display: none;"></div>
+    </section>
+    <section id="Section3" class="container contact">
+        <h3> Ubicanos </h3>
+        <div id="loader3" aria-busy="true" style="display: none;"></div>
+    </section>
     <footer class="container" >
         Copyright © 2024 - Spectre
     </footer>
+    <script>
+            $.ajax({
+                url: "./templates/contact.php",
+                type: "GET",
+                beforeSend: function(){
+                    $("#loader3").show();
+                },
+                success: function(response){
+                    $("#Section3").empty();
+                    $("#Section3").append(response);
+                },
+                complete: function(data){
+                    $("#loader3").hide();
+                }
+            })
+            $.ajax({
+                url: "./templates/pokemon.php",
+                type: "GET",
+                beforeSend: function(){
+                    $("#loader").show();
+                },
+                success: function(response){
+                    $(".pokemons__wrapper").empty();
+                    $(".pokemons__wrapper").append(response);
+                },
+                complete: function(data){
+                    $("#loader").hide();
+                }
+            })
+            $.ajax({
+                url: "./templates/products_categories.php",
+                type: "GET",
+                beforeSend: function(){
+                    $("#loader2").show();
+                },
+                success: function(response){
+                    $("#Section2").empty();
+                    $("#Section2").append(response);
+                },
+                complete: function(data){
+                    $("#loader2").hide();
+                }
+            })
+    </script>
 </body>
 </html>

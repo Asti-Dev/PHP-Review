@@ -32,7 +32,7 @@ function get_data(string $url, ?array $params = NULL) : stdClass
     return $data;
 };
 
-function render_template(string $template, ?stdClass $data = NULL ) : void
+function render_template(string $template, array $data = [] ) : void
 {
     $template = trim($template);
     $template = str_replace(" ","_",$template);

@@ -1,4 +1,3 @@
-<section id="Section2" class="container">
         <h3> Categorias de nuestros productos </h3>
         <div class="grid">
             <article class="category-item">
@@ -36,4 +35,3 @@
                 </footer>
             </article>
         </div>
-    </section>

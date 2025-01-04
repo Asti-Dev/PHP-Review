@@ -1,22 +1,23 @@
+<? 
+require_once '../classes/Pokemon.php';
+require_once '../functions.php';
 
-<section id="Section1" class="container">
-        <h3> Lista de Pokemons</h3>
-        <div class="pokemons__wrapper">
-        <?php foreach ($data->results as $key => $pokemon) :?>
-        <article class="pokemon">
+$pokemons = Pokemon::get_pokemons($apiUrl, $apiParams);
+?>
+        
         <?php 
-                $pokeData = get_data(($pokemon->url));
-        ?>
-            <header class="pokemon__title"><?= ($key+1) .") " . $pokeData->name ?> </header>
-            <p class="pokemon__text"> Descripcion de <?= $pokeData->name ?></p>
+        foreach ($pokemons as $key => $pokemon) :?>
+        <article class="pokemon">
+            <header class="pokemon__title"><?= ($key+1) .") " . $pokemon->name ?> </header>
+            <p class="pokemon__text"> Descripcion de <?= $pokemon->name ?></p>
             <div class="pokemon__image__wrapper">
-            <img class="pokemon__image" src= <?="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" .$pokeData->id. ".png"?> />
+            <img class="pokemon__image" src= <?="$pokemon->imageUrl"?> />
             </div>
             <ul class="pokemon__characteristics__list">
-                <li>Altura: <?= $pokeData->height ?></li>
-                <li>Peso: <?= $pokeData->weight ?></li>
-                <?php foreach ($pokeData->abilities as $key => $ability) :?>
-                    <li> Abilidad <?= ($key+1) .": ". $ability->ability->name ?> </li>
+                <li><?= $pokemon->print_height() ?></li>
+                <li><?= $pokemon->print_weight() ?></li>
+                <?php foreach ($pokemon->print_abilities() as $key => $ability) :?>
+                    <li><?= $ability ?> </li>
                 <?php endforeach; ?>
 
             </ul>
@@ -24,4 +25,3 @@
         </article>
         <?php endforeach; ?>
         </div>
-</section>
