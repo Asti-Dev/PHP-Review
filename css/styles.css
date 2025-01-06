@@ -5,6 +5,39 @@ img {
     width: auto;
 }
 
+.top {
+    position: sticky;
+    z-index: 5;
+    top: 0;
+    background-color: var(--background-color) ;
+    animation: enhance-header linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 200px;
+}
+
+#progress {
+    width: 0%;
+    height: 0.5em;
+    background-color: var(--primary);
+    animation: progress-grow auto linear;
+    animation-timeline: scroll(root block);
+}
+
+@keyframes progress-grow {
+    to { width: 100% }
+}
+
+.navbar{
+    color: hsl(206, 16%, 17%);
+}
+
+@keyframes enhance-header {
+
+    to { 
+        background-color: #fff ;
+    }
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -21,6 +54,25 @@ img {
     font-size: 3rem;
     font-weight: bolder;
     font-family: monospace;
+}
+
+article{
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 30%;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        translate: 0 100px;
+        scale: .5;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+    }
 }
 
 .pokemons__wrapper {

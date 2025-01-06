@@ -10,7 +10,9 @@
     <title>Spectre</title>
 </head>
 <body>
-    <nav class="container-fluid">
+    <div class="top">
+    <div id="progress"></div>
+    <nav class="container-fluid navbar">
         <ul>
           <li><strong>My Page</strong></li>
         </ul>
@@ -20,6 +22,7 @@
           <li><a href="#Section3" role="button">Seccion 3</a></li>
         </ul>
     </nav>
+    </div>
     <header class="container-fluid header">
         <h1 class='text-center'> Encuentra las mejore cosas aqui en <br><span>Spectre</span></h1>
         <h2 class="text-center"> No pierdas tiempo en tiendas intermediarias</h2>
@@ -42,6 +45,20 @@
         Copyright © 2024 - Spectre
     </footer>
     <script>
+             $.ajax({
+                url: "./templates/products_categories.php",
+                type: "GET",
+                beforeSend: function(){
+                    $("#loader2").show();
+                },
+                success: function(response){
+                    $("#Section2").empty();
+                    $("#Section2").append(response);
+                },
+                complete: function(data){
+                    $("#loader2").hide();
+                }
+            })
             $.ajax({
                 url: "./templates/contact.php",
                 type: "GET",
@@ -70,20 +87,7 @@
                     $("#loader").hide();
                 }
             })
-            $.ajax({
-                url: "./templates/products_categories.php",
-                type: "GET",
-                beforeSend: function(){
-                    $("#loader2").show();
-                },
-                success: function(response){
-                    $("#Section2").empty();
-                    $("#Section2").append(response);
-                },
-                complete: function(data){
-                    $("#loader2").hide();
-                }
-            })
+            
     </script>
 </body>
 </html>
