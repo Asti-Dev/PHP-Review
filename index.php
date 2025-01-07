@@ -55,7 +55,7 @@
                     $("#Section2").empty();
                     $("#Section2").append(response);
                 },
-                complete: function(data){
+                complete: function(){
                     $("#loader2").hide();
                 }
             })

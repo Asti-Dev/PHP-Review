@@ -35,6 +35,7 @@ img {
 
     to { 
         background-color: #fff ;
+        box-shadow: 0px 2.5px 0px var(--secondary);
     }
 }
 
@@ -59,7 +60,7 @@ img {
 article{
     animation: reveal linear both;
     animation-timeline: view();
-    animation-range: entry 20% cover 30%;
+    animation-range: entry 20% cover 18%;
 }
 
 @keyframes reveal {
