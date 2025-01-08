@@ -3,10 +3,7 @@ declare(strict_types=1);
 
 $apiUrl = "https://pokeapi.co/api/v2/pokemon";
 
-$apiParams = [
-    "limit" => 5,
-    "offset" => rand(1, 100),
-];
+
 
 function get_data(string $url, ?array $params = NULL) : stdClass
 {

@@ -76,6 +76,15 @@ article{
     }
 }
 
+.message-alert{
+    color: var(--del-color);
+}
+
+.pokemon__button {
+    align-self: self-start;
+    margin-top: 35px;
+}
+
 .pokemons__wrapper {
     display: grid;
     grid-column-gap: 1.5rem;

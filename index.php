@@ -29,65 +29,32 @@
     </header>
     <section id="Section1" class="container">
         <h3> Lista de Pokemons</h3>
+        <form>
+        <div class="grid">
+          <label for="limit">
+            Cantidad de Pokemons
+            <input type="number" id="limit" name="limit" placeholder="max: 20" required>
+          </label>
+          <label for="offset">
+            Orden de lista
+            <input type="number" id="offset" name="offset" placeholder="max: 1302" required>
+          </label>
+          <button type="button" id="searchPokemons" class="pokemon__button">Submit</button>
+        </div>
+        </form>
         <div class="pokemons__wrapper">
-            <div id="loader" aria-busy="true" style="display: none;"></div>
+            
         </div>
     </section>
     <section id="Section2" class="container">
-        <h3> Categorias de nuestros productos </h3>
-        <div id="loader2" aria-busy="true" style="display: none;"></div>
+        
     </section>
     <section id="Section3" class="container contact">
-        <h3> Ubicanos </h3>
-        <div id="loader3" aria-busy="true" style="display: none;"></div>
+        
     </section>
     <footer class="container" >
         Copyright © 2024 - Spectre
     </footer>
-    <script>
-             $.ajax({
-                url: "./templates/products_categories.php",
-                type: "GET",
-                beforeSend: function(){
-                    $("#loader2").show();
-                },
-                success: function(response){
-                    $("#Section2").empty();
-                    $("#Section2").append(response);
-                },
-                complete: function(){
-                    $("#loader2").hide();
-                }
-            })
-            $.ajax({
-                url: "./templates/contact.php",
-                type: "GET",
-                beforeSend: function(){
-                    $("#loader3").show();
-                },
-                success: function(response){
-                    $("#Section3").empty();
-                    $("#Section3").append(response);
-                },
-                complete: function(data){
-                    $("#loader3").hide();
-                }
-            })
-            $.ajax({
-                url: "./templates/pokemon.php",
-                type: "GET",
-                beforeSend: function(){
-                    $("#loader").show();
-                },
-                success: function(response){
-                    $(".pokemons__wrapper").empty();
-                    $(".pokemons__wrapper").append(response);
-                },
-                complete: function(data){
-                    $("#loader").hide();
-                }
-            })
-            
-    </script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
